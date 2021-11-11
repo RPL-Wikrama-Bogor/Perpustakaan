@@ -85,10 +85,21 @@
       </li>
 
       <!-- Nav Item - Login -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Logout</span></a>
+      </li> -->
+
+      <li class="nav-item">
+        <form method="POST" action="{{ route('logout') }}">
+          @csrf
+          <a class="nav-link" href="route('logout')" onclick="event.preventDefault();
+                                      this.closest('form').submit();">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Log Out</span>
+          </a>
+        </form>
       </li>
 
       <!-- Divider -->

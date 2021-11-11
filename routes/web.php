@@ -7,6 +7,7 @@ use App\Http\Controllers\RayonController;
 use App\Http\Controllers\PublisherController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\BorrowingController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,20 @@ use App\Http\Controllers\BorrowingController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::resource('students', StudentController::class);
 Route::resource('studentGroups', StudentGroupController::class);
 Route::resource('rayons', RayonController::class);
 Route::resource('publishers', PublisherController::class);
 Route::resource('books', BookController::class);
 Route::resource('borrowings', BorrowingController::class);
+Route::resource('dashboard_', DashboardController::class);
